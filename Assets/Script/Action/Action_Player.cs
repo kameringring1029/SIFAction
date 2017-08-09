@@ -40,7 +40,7 @@ public class Action_Player : MonoBehaviour
         transform.position - transform.up * 0.05f,
         groundLayer);
         //
-        if (jumptrg)
+        if (jumptrg && anim.GetBool("State_Jump") )
         {
             jumptrg = false;
 
@@ -68,7 +68,7 @@ public class Action_Player : MonoBehaviour
         anim.SetBool("isFalling", isFalling);
 
 
-        if (shottrg)
+        if (shottrg && anim.GetBool("State_Shot"))
         {
             shottrg = false;
             anim.SetTrigger("Shot");

@@ -122,7 +122,7 @@ public class Gatcha : MonoBehaviour {
 
 
                     //GameObject.Find("Text (" + i + ")").GetComponent<Text>().text = membersInfo[i].series;
-                    //GameObject.Find("envelope (" + i + ")").GetComponent<SpriteRenderer>().sprite = envelopeIcon[Int32.Parse( membersInfo[i].rarity)];
+                    GameObject.Find("Envelope_member" + i).GetComponent<Image>().sprite = envelopeIcon[Int32.Parse( membersInfo[i].rarity)];
 
 
                     /* 各ガチャ結果をインスタンスに代入 */

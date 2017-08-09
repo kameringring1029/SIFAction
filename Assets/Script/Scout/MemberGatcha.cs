@@ -10,6 +10,7 @@ public class MemberGatcha : MonoBehaviour
 
     public Sprite[] envelopeIcon;
     public GameObject Selected_Member;
+    private Animator player_anim;
 
 
     /* setter, getter付きプロパティ */
@@ -30,6 +31,7 @@ public class MemberGatcha : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        player_anim = GameObject.Find("Action_Player").GetComponent<Animator>();
 
     }
 
@@ -48,23 +50,21 @@ public class MemberGatcha : MonoBehaviour
         string rarity_string = "";
         if (this.rarity == "4") {
             rarity_string = "UR";
-        }else if(this.rarity == "3") {
+        } else if (this.rarity == "3") {
             rarity_string = "SSR";
-        }else if (this.rarity == "2") {
+        } else if (this.rarity == "2") {
             rarity_string = "SR";
-        }else if (this.rarity == "1"){
+        } else if (this.rarity == "1") {
             rarity_string = "R";
         }
 
 
-        /* Playerの表示を変更 */
-        //GameObject.Find("Player").GetComponent<Transform>().localScale = new Vector3(1, 1, 0);
+        /* Selected Memberの表示を変更 */
         Selected_Member.GetComponent<Image>().sprite = GetComponent<Image>().sprite;
-        //GameObject.Find("envelope_Player").GetComponent<SpriteRenderer>().sprite = envelopeIcon[Int32.Parse(rarity)];
-        //GameObject.Find("Text_Player").GetComponent<Text>().text = rarity_string + this.name +"("+this.series+")" + "\nスマイル：" + this.status_s + "\nピュア：" + this.status_p + "\nクール：" + this.status_c;
+        GameObject.Find("Envelope_Selected_Member").GetComponent<Image>().sprite = envelopeIcon[Int32.Parse(rarity)];
 
 
-        /* Playerステータスの反映 */
+        /* Selected Memberステータスの反映 */
         SelectedMember playerObj = Selected_Member.GetComponent<SelectedMember>();
         playerObj.id = this.id;
         playerObj.rarity = this.rarity;
@@ -76,6 +76,31 @@ public class MemberGatcha : MonoBehaviour
         playerObj.status_p = this.status_p;
         playerObj.status_c = this.status_c;
         playerObj.type = this.type;
+
+        if(rarity_string == "R"){
+            GameObject.Find("Text_Select_Member").GetComponent<Text>().text = "R"+this.series;
+        }
+        else
+        {
+            GameObject.Find("Text_Select_Member").GetComponent<Text>().text = this.series;
+        }
+        
+        if (this.series == "マリン編")
+        {
+            player_anim.SetBool("State_Shot", true);
+            player_anim.SetBool("State_Jump", false);
+        }
+        else if (this.series == "ホワイトデー編")
+        {
+            player_anim.SetBool("State_Shot", false);
+            player_anim.SetBool("State_Jump", true);
+        }
+        else
+        {
+            player_anim.SetBool("State_Shot", false);
+            player_anim.SetBool("State_Jump", false);
+        }
+    
 
         Debug.Log("[Selected_Member]" + playerObj.name + "(" + playerObj.series + "):" + playerObj.type + "," + playerObj.status_s + "," + playerObj.status_p + "," + playerObj.status_c);
 
