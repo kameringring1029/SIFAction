@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: e6a2910d3a8b49547929101c63ee4e45
-timeCreated: 1502372301
+guid: 9e00bbd0e18517b4ba3efa9d0bd06ab4
+timeCreated: 1502370487
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Enemy-1-cool_0
-    21300002: Enemy-1-cool_1
+    21300000: explosion_0
+    21300002: explosion_1
+    21300004: explosion_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -29,7 +30,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapMode: 1
@@ -42,7 +43,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 320
+  spritePixelsToUnits: 64
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -96,28 +97,41 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy-1-cool_0
+      name: explosion_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 320
-        height: 320
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Enemy-1-cool_1
+      name: explosion_1
       rect:
         serializedVersion: 2
-        x: 320
+        x: 64
         y: 0
-        width: 320
-        height: 320
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: explosion_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

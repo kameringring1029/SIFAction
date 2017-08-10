@@ -8,11 +8,15 @@ public class Button_Action : MonoBehaviour
 
     public GameObject Canvas_Scout;
 
+    public GameObject Player;
+
     public void ButtonPush()
     {
         Debug.Log("Action pushed");
 
         Canvas_Scout.SetActive(false);
+
+        Player.GetComponent<Action_Player>().setPauseFlg(false);
 
         //SceneManager.LoadScene("Action");
     }

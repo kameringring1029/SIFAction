@@ -18,9 +18,11 @@ public class Action_Player : MonoBehaviour
     public LayerMask groundLayer; //Linecastで判定するLayer
     private bool isGrounded; //着地判定
 
-
     public GameObject bullet;
     private bool shottrg = false;
+
+    private bool pauseflg = false;
+
 
 
     void Start()
@@ -132,4 +134,13 @@ public class Action_Player : MonoBehaviour
         this.shottrg = true;
     }
 
+    public void setPauseFlg(bool flg)
+    {
+        this.pauseflg = flg;
+    }
+
+    public bool getPauseFlg()
+    {
+        return pauseflg;
+    }
 }
