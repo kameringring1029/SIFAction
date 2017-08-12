@@ -5,7 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
     private GameObject player;
-    private int speed = 10;
+    public int speed;
+    public int destroy_time;
 
     void Start()
     {
@@ -20,7 +21,7 @@ public class Bullet : MonoBehaviour {
         temp.x = player.transform.localScale.x;
         transform.localScale = temp;
         //5秒後に消滅
-        Destroy(gameObject, 5);
+        Destroy(gameObject, destroy_time);
     }
 
     void OnTriggerEnter2D(Collider2D col)

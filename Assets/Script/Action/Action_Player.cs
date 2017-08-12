@@ -19,6 +19,7 @@ public class Action_Player : MonoBehaviour
     private bool isGrounded; //着地判定
 
     public GameObject bullet;
+    public GameObject bullet_card;
     private bool shottrg = false;
 
     private bool pauseflg = false;
@@ -42,13 +43,13 @@ public class Action_Player : MonoBehaviour
         transform.position - transform.up * 0.05f,
         groundLayer);
         //
-        if (jumptrg && anim.GetBool("State_Jump") )
+        if (jumptrg)
         {
             jumptrg = false;
 
             //着地していた時、
-            //if (isGrounded)
-            if(true)
+            if (isGrounded || anim.GetBool("State_Fly"))
+            //if(true)
             {
                 //Dashアニメーションを止めて、Jumpアニメーションを実行
                 anim.SetBool("Dash", false);
@@ -69,12 +70,26 @@ public class Action_Player : MonoBehaviour
         anim.SetBool("isJumping", isJumping);
         anim.SetBool("isFalling", isFalling);
 
+        if (isGrounded)
+        {
+            anim.SetBool("isJumping", false);
+            anim.SetBool("isFalling", true);
+        }
 
-        if (shottrg && anim.GetBool("State_Shot"))
+
+        if (shottrg)
         {
             shottrg = false;
             anim.SetTrigger("Shot");
-            Instantiate(bullet, transform.position + new Vector3(0f, 1.2f, 0f), transform.rotation);
+
+            if (anim.GetBool("State_Shot"))
+            {
+                Instantiate(bullet, transform.position + new Vector3(0f, 1.2f, 0f), transform.rotation);
+            }
+            else if(!(GameObject.Find("bullet_card(Clone)")))
+            {
+                Instantiate(bullet_card, transform.position + new Vector3(0f, 1.2f, 0f), transform.rotation);
+            }
         }
     }
 

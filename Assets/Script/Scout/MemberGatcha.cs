@@ -88,17 +88,17 @@ public class MemberGatcha : MonoBehaviour
         if (this.series == "マリン編")
         {
             player_anim.SetBool("State_Shot", true);
-            player_anim.SetBool("State_Jump", false);
+            player_anim.SetBool("State_Fly", false);
         }
         else if (this.series == "ホワイトデー編")
         {
             player_anim.SetBool("State_Shot", false);
-            player_anim.SetBool("State_Jump", true);
+            player_anim.SetBool("State_Fly", true);
         }
         else
         {
             player_anim.SetBool("State_Shot", false);
-            player_anim.SetBool("State_Jump", false);
+            player_anim.SetBool("State_Fly", false);
         }
     
 
