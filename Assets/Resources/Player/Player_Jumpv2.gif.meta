@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: b0821f149d87e59438a7e0bb40240586
-timeCreated: 1502275264
+guid: 9827c1d2b42ec0f44835e533d75dbbcc
+timeCreated: 1502625456
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Player_Jump_0
-    21300002: Player_Jump_1
-    21300004: Player_Jump_2
-    21300006: Player_Jump_3
+    21300000: Player_Jumpv2_0
+    21300002: Player_Jumpv2_1
+    21300004: Player_Jumpv2_2
+    21300006: Player_Jumpv2_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -31,7 +31,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapMode: 1
@@ -98,7 +98,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Jump_0
+      name: Player_Jumpv2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,7 +111,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Jump_1
+      name: Player_Jumpv2_1
       rect:
         serializedVersion: 2
         x: 320
@@ -124,7 +124,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Jump_2
+      name: Player_Jumpv2_2
       rect:
         serializedVersion: 2
         x: 640
@@ -137,7 +137,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Jump_3
+      name: Player_Jumpv2_3
       rect:
         serializedVersion: 2
         x: 960
