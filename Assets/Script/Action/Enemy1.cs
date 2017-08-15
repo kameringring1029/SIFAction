@@ -14,12 +14,11 @@ public class Enemy1 : MonoBehaviour {
     public GameObject Player;
 
     private Life lifeScript;
-    //********** 開始 **********//
     //メインカメラのタグ名　constは定数(絶対に変わらない値)
     private const string MAIN_CAMERA_TAG_NAME = "MainCamera";
     //カメラに映っているかの判定
     private bool _isRendered = false;
-    //********** 終了 **********//
+    private bool pauseflag = false;
 
     void Start()
     {
@@ -47,6 +46,26 @@ public class Enemy1 : MonoBehaviour {
                 {
                     //Instantiate(item, transform.position, transform.rotation);
                 }
+            }
+            else if(col.tag == "Impact")
+            {
+                Instantiate(explosion, transform.position, transform.rotation);
+
+                // ふっとび
+                if (speed > 0) speed = -1;
+                else speed = 1;
+                speed = speed * 10;
+                Destroy(gameObject, 2);
+
+                // Bullet化
+                gameObject.tag = "Bullet";
+                gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+                gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+            }
+            // Bullet化したとき時の挙動
+            else if (col.gameObject.tag == "Enemy" && gameObject.tag == "Bullet")
+            {
+                Destroy(gameObject);
             }
         }
     }

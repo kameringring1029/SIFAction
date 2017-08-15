@@ -1,0 +1,11 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "SIFAction_Web.data.unityweb",
+"wasmCodeUrl": "SIFAction_Web.wasm.code.unityweb",
+"wasmFrameworkUrl": "SIFAction_Web.wasm.framework.unityweb",
+"asmCodeUrl": "SIFAction_Web.asm.code.unityweb",
+"asmMemoryUrl": "SIFAction_Web.asm.memory.unityweb",
+"asmFrameworkUrl": "SIFAction_Web.asm.framework.unityweb",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#222C36"
+}

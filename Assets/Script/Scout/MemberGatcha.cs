@@ -89,16 +89,25 @@ public class MemberGatcha : MonoBehaviour
         {
             player_anim.SetBool("State_Shot", true);
             player_anim.SetBool("State_Fly", false);
+            player_anim.SetBool("State_China", false);
         }
         else if (this.series == "ホワイトデー編")
         {
             player_anim.SetBool("State_Shot", false);
             player_anim.SetBool("State_Fly", true);
+            player_anim.SetBool("State_China", false);
+        }
+        else if (this.series == "チャイナドレス編")
+        {
+            player_anim.SetBool("State_Shot", false);
+            player_anim.SetBool("State_Fly", false);
+            player_anim.SetBool("State_China", true);
         }
         else
         {
             player_anim.SetBool("State_Shot", false);
             player_anim.SetBool("State_Fly", false);
+            player_anim.SetBool("State_China", false);
         }
     
 

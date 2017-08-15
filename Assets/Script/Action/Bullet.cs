@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour {
 
     private GameObject player;
     public int speed;
-    public int destroy_time;
+    public float destroy_time;
 
     void Start()
     {
@@ -20,16 +20,21 @@ public class Bullet : MonoBehaviour {
         Vector2 temp = transform.localScale;
         temp.x = player.transform.localScale.x;
         transform.localScale = temp;
-        //5秒後に消滅
+        //ある時間後に消滅
         Destroy(gameObject, destroy_time);
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Enemy")
+        if (col.gameObject.tag == "Enemy" && gameObject.tag == "Bullet")
         {
             Destroy(gameObject);
         }
+    }
+
+    public void destroyself()
+    {
+        Destroy(gameObject);
     }
 }
 
