@@ -18,6 +18,7 @@ public class Gatcha : MonoBehaviour {
     public Sprite[] envelopeIcon;
 
 
+    private GameObject Button_MemberRoom;
 
     // Use this for initialization
     void Start () {
@@ -26,6 +27,7 @@ public class Gatcha : MonoBehaviour {
 
         StartCoroutine(GetText());
 
+        Button_MemberRoom = GameObject.Find("Button_Menu_Member");
     }
 
     // Update is called once per frame
@@ -126,20 +128,28 @@ public class Gatcha : MonoBehaviour {
 
 
                     /* 各ガチャ結果をインスタンスに代入 */
-                    MemberGatcha memberObj = GameObject.Find("Member_Gatcha" + i).GetComponent<MemberGatcha>();
-                    memberObj.id = membersInfo[i].id;
-                    memberObj.rarity = membersInfo[i].rarity;
-                    memberObj.name = membersInfo[i].name;
-                    memberObj.series = membersInfo[i].series;
-                    memberObj.fullimgurl_0 = membersInfo[i].fullimgurl_0;
-                    memberObj.fullimgurl_1 = membersInfo[i].fullimgurl_1;
-                    memberObj.info = membersInfo[i].info;
-                    memberObj.status_s = membersInfo[i].status_s;
-                    memberObj.status_p = membersInfo[i].status_p;
-                    memberObj.status_c = membersInfo[i].status_c;
-                    memberObj.type = membersInfo[i].type;
+                    
+                    if (GameObject.Find("Button_Selected_MemberRoom_" + membersInfo[i].id))
+                    {
+                        Debug.Log("Found");
+                        MemberRoom_Member memberObj = GameObject.Find("Button_Selected_MemberRoom_" + membersInfo[i].id).GetComponent<MemberRoom_Member>();
+                        memberObj.id = membersInfo[i].id;
+                        memberObj.rarity = membersInfo[i].rarity;
+                        memberObj.name = membersInfo[i].name;
+                        memberObj.series = membersInfo[i].series;
+                        memberObj.fullimgurl_0 = membersInfo[i].fullimgurl_0;
+                        memberObj.fullimgurl_1 = membersInfo[i].fullimgurl_1;
+                        memberObj.info = membersInfo[i].info;
+                        memberObj.status_s = membersInfo[i].status_s;
+                        memberObj.status_p = membersInfo[i].status_p;
+                        memberObj.status_c = membersInfo[i].status_c;
+                        memberObj.type = membersInfo[i].type;
 
+                        memberObj.possesion = true;
+                        GameObject.Find("Button_Selected_MemberRoom_" + membersInfo[i].id).transform.parent.gameObject.transform.parent.gameObject.GetComponent<Button_MemberRoom>().possesion = true;
 
+                    }
+                    
                     Debug.Log(i + " " + membersInfo[i].id + " " + membersInfo[i].rarity + "" + membersInfo[i].name + "(" + membersInfo[i].series + "):" + membersInfo[i].type + "," + membersInfo[i].status_s + "," + membersInfo[i].status_p + "," + membersInfo[i].status_c);
 
                 }

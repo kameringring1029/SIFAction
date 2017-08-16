@@ -3,15 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SelectedMember : MonoBehaviour {
-
-    private bool isWalking;
-    private int animeindex;
-    private int memberindex;
-    public Sprite[] walk;
-    private float speed = 5.0f;
-    private float angle;
-    private int angle_p;
-
+    
 
     public string id { get; set; }
     public string rarity { get; set; }
