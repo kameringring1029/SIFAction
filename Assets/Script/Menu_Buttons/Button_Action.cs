@@ -20,7 +20,7 @@ public class Button_Action : MonoBehaviour
         Canvas_MemberRoom = GameObject.Find("Canvas_MemberRoom");
         Canvas_MemberRoom_Jump = GameObject.Find("Canvas_MemberRoom_Jump");
         Canvas_MemberRoom_Shot = GameObject.Find("Canvas_MemberRoom_Shot");
-        //Canvas_MemberRoom_Ground = GameObject.Find("Canvas_MemberRoom_Ground");
+        Canvas_MemberRoom_Ground = GameObject.Find("Canvas_MemberRoom_Ground");
     }
 
     public void ButtonPush()
@@ -31,10 +31,9 @@ public class Button_Action : MonoBehaviour
         Canvas_MemberRoom.GetComponent<Canvas>().enabled = false;
         Canvas_MemberRoom_Jump.GetComponent<Canvas>().enabled = false;
         Canvas_MemberRoom_Shot.GetComponent<Canvas>().enabled = false;
-        //Canvas_MemberRoom_Ground.GetComponent<Canvas>().enabled = false;
+        Canvas_MemberRoom_Ground.GetComponent<Canvas>().enabled = false;
 
         Player.GetComponent<Action_Player>().setPauseFlg(false);
-
-        //SceneManager.LoadScene("Action");
+        
     }
 }

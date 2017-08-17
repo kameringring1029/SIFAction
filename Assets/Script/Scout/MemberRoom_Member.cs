@@ -151,6 +151,8 @@ public class MemberRoom_Member : MonoBehaviour
 
 
             transform.parent.gameObject.GetComponent<Canvas>().enabled = false;
+
+            GameObject.Find("BGM").GetComponent<BGM>().changeBGM();
         }
     }
 }

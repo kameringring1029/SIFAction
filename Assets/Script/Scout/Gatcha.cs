@@ -17,17 +17,13 @@ public class Gatcha : MonoBehaviour {
     private membersinfo[] membersInfo;
     public Sprite[] envelopeIcon;
 
-
-    private GameObject Button_MemberRoom;
+    
 
     // Use this for initialization
     void Start () {
-
-        //GameObject.Find("Canvas_Action").GetComponent<Canvas>().enabled = false;
-
-        StartCoroutine(GetText());
-
-        Button_MemberRoom = GameObject.Find("Button_Menu_Member");
+        
+      //  StartCoroutine(GetText());
+        
     }
 
     // Update is called once per frame

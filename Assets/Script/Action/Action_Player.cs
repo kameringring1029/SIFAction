@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using System;
 
 public class Action_Player : MonoBehaviour
 {
@@ -23,8 +25,9 @@ public class Action_Player : MonoBehaviour
     private bool shottrg = false;
 
     private bool pauseflg = false;
-
     private bool pauseflg_player = false;
+
+    public int loveca { set; get; }
 
 
 
@@ -33,6 +36,9 @@ public class Action_Player : MonoBehaviour
         x = 0;
         anim = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+
+        loveca = 53;
+        GameObject.Find("Loveca_num").GetComponent<Text>().text = "" + loveca;
     }
 
 
