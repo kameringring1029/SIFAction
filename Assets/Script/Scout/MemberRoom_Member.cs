@@ -120,31 +120,7 @@ public class MemberRoom_Member : MonoBehaviour
 
 
             // ActionPlayerのStateを変更
-            if (this.series == "マリン編")
-            {
-                player_anim.SetBool("State_Shot", true);
-                player_anim.SetBool("State_China", false);
-            }
-            else if (this.series == "ホワイトデー編")
-            {
-                player_anim.SetBool("State_Fly", true);
-            }
-            else if (this.series == "チャイナドレス編")
-            {
-                player_anim.SetBool("State_Shot", false);
-                player_anim.SetBool("State_China", true);
-            }
-            else if (action_type == "Jump")
-            {
-                player_anim.SetBool("State_Fly", false);
-            }
-            else if (action_type == "Shot")
-            {
-                player_anim.SetBool("State_Shot", false);
-                player_anim.SetBool("State_China", false);
-
-            }
-
+            changePlayerState();
 
             Debug.Log("[Selected_Member]" + playerObj.name + "(" + playerObj.series + "):" + playerObj.type + "," + playerObj.status_s + "," + playerObj.status_p + "," + playerObj.status_c);
 
@@ -154,5 +130,44 @@ public class MemberRoom_Member : MonoBehaviour
 
             GameObject.Find("BGM").GetComponent<BGM>().changeBGM();
         }
+    }
+
+
+    // ActionPlayerのStateを変更
+    private void changePlayerState()
+    {
+        if (this.series == "マリン編")
+        {
+            player_anim.SetBool("State_Shot", true);
+            player_anim.SetBool("State_China", false);
+        }
+        else if (this.series == "ホワイトデー編")
+        {
+            player_anim.SetBool("State_Fly", true);
+        }
+        else if (this.series == "チャイナドレス編")
+        {
+            player_anim.SetBool("State_Shot", false);
+            player_anim.SetBool("State_China", true);
+        }
+        else if (this.series == "4月編")
+        {
+            player_anim.SetBool("State_Fruit", true);
+        }
+        else if (action_type == "Jump")
+        {
+            player_anim.SetBool("State_Fly", false);
+        }
+        else if (action_type == "Shot")
+        {
+            player_anim.SetBool("State_Shot", false);
+            player_anim.SetBool("State_China", false);
+
+        }
+        else if (action_type == "Ground")
+        {
+            player_anim.SetBool("State_Fruit", false);
+        }
+
     }
 }

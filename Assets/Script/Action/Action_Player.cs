@@ -15,14 +15,17 @@ public class Action_Player : MonoBehaviour
 
     private bool jumptrg = false;
     public float jumpPower = 700; //ジャンプ力
+
     public LayerMask groundLayer; //Linecastで判定するLayer
     private bool isGrounded; //着地判定
 
     public GameObject bullet;
     public GameObject bullet_card;
     public GameObject impact;
+    public GameObject fruit;
 
     private bool shottrg = false;
+    private bool groundtrg = false;
 
     private bool pauseflg = false;
     private bool pauseflg_player = false;
@@ -48,7 +51,7 @@ public class Action_Player : MonoBehaviour
         if (!pauseflg_player)
         {
 
-            //Jumpボタン
+            //### Jumpボタン ###
             if (jumptrg)
             {
                 jumptrg = false;
@@ -88,7 +91,8 @@ public class Action_Player : MonoBehaviour
             }
 
 
-            // Shotボタン
+
+            //### Shotボタン ###
             if (shottrg)
             {
                 shottrg = false;
@@ -114,6 +118,26 @@ public class Action_Player : MonoBehaviour
                 }
             }
 
+
+
+            //### Groundボタン ###
+            if (groundtrg)
+            {
+                groundtrg = false;
+
+                anim.SetTrigger("Ground");
+
+                //Linecastで足元に地面があるか判定
+                isGrounded = Physics2D.Linecast(
+                transform.position + transform.up * 1,
+                transform.position - transform.up * 0.05f,
+                groundLayer);
+
+                // フルーツパーラー編装備時
+                if (anim.GetBool("State_Fruit") && isGrounded)
+                    Instantiate(fruit, transform.position + new Vector3(2f, 1.2f, 0f), transform.rotation);
+
+            }
         }
     }
 
@@ -181,6 +205,11 @@ public class Action_Player : MonoBehaviour
     public void setShotTrg()
     {
         this.shottrg = true;
+    }
+
+    public void setGroundTrg()
+    {
+        this.groundtrg = true;
     }
 
     public void setPauseFlg(bool flg)

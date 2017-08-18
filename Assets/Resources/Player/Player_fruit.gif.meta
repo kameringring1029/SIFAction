@@ -1,13 +1,11 @@
 fileFormatVersion: 2
-guid: f9781a400ddfb904fbf9d21cef81199e
-timeCreated: 1502630955
+guid: 185cb579b4c4fae469eedf378e1e89d4
+timeCreated: 1503043128
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Player_Flyv2_0
-    21300002: Player_Flyv2_1
-    21300004: Player_Flyv2_2
-    21300006: Player_Flyv2_3
+    21300000: Player_fruit_0
+    21300002: Player_fruit_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -98,7 +96,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Flyv2_0
+      name: Player_fruit_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,36 +109,10 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Flyv2_1
+      name: Player_fruit_1
       rect:
         serializedVersion: 2
         x: 320
-        y: 0
-        width: 320
-        height: 320
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player_Flyv2_2
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 320
-        height: 320
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Player_Flyv2_3
-      rect:
-        serializedVersion: 2
-        x: 960
         y: 0
         width: 320
         height: 320
