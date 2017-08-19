@@ -27,7 +27,6 @@ public class Action_Player : MonoBehaviour
     private bool shottrg = false;
     private bool groundtrg = false;
 
-    private bool pauseflg = false;
     private bool pauseflg_player = false;
 
     public int loveca { set; get; }
@@ -101,7 +100,7 @@ public class Action_Player : MonoBehaviour
                 // マリン編装備時
                 if (anim.GetBool("State_Shot"))
                 {
-                    Instantiate(bullet, transform.position + new Vector3(0f, 1.2f, 0f), transform.rotation);
+                    Instantiate(bullet, transform.position + new Vector3(1.2f, 1.2f, 0f), transform.rotation);
                 }
                 // チャイナドレス編装備時
                 else if (anim.GetBool("State_China"))
@@ -210,16 +209,6 @@ public class Action_Player : MonoBehaviour
     public void setGroundTrg()
     {
         this.groundtrg = true;
-    }
-
-    public void setPauseFlg(bool flg)
-    {
-        this.pauseflg = flg;
-    }
-
-    public bool getPauseFlg()
-    {
-        return pauseflg;
     }
 
     public void setPauseFlgPlayerFalse()

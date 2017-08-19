@@ -11,11 +11,13 @@ public class Button_Member : MonoBehaviour
     private GameObject Canvas_MemberRoom_Shot;
     private GameObject Canvas_MemberRoom_Ground;
     private GameObject Player;
+    private GameObject LifeBar;
 
 
     private void Start()
     {
         Player = GameObject.Find("Action_Player");
+        LifeBar = GameObject.Find("Label_Action_HPBar");
 
         Canvas_MemberRoom = GameObject.Find("Canvas_MemberRoom");
         Canvas_MemberRoom_Jump = GameObject.Find("Canvas_MemberRoom_Jump");
@@ -36,7 +38,7 @@ public class Button_Member : MonoBehaviour
             Canvas_MemberRoom_Shot.GetComponent<Canvas>().enabled = false;
             Canvas_MemberRoom_Ground.GetComponent<Canvas>().enabled = false;
 
-            Player.GetComponent<Action_Player>().setPauseFlg(false);
+            LifeBar.GetComponent<Life>().pauseflg =false;
         }
         else
         {
@@ -45,7 +47,7 @@ public class Button_Member : MonoBehaviour
             Canvas_MemberRoom_Shot.GetComponent<Canvas>().enabled = true;
             Canvas_MemberRoom_Ground.GetComponent<Canvas>().enabled = true;
 
-            Player.GetComponent<Action_Player>().setPauseFlg(true);
+            LifeBar.GetComponent<Life>().pauseflg = true;
         }
     }
 }

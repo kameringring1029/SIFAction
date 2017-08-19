@@ -8,9 +8,11 @@ public class Button_Scout : MonoBehaviour {
     public GameObject Canvas_Scout;
     public GameObject Canvas_Select_Member;
     private GameObject Player;
+    private GameObject LifeBar;
 
     private void Start()
     {
+        LifeBar = GameObject.Find("Label_Action_HPBar");
         Player = GameObject.Find("Action_Player");
     }
 
@@ -21,13 +23,13 @@ public class Button_Scout : MonoBehaviour {
         {
             Canvas_Scout.SetActive(false);
 
-            Player.GetComponent<Action_Player>().setPauseFlg(false);
+            LifeBar.GetComponent<Life>().pauseflg = false;
         }
         else
         {
             Canvas_Scout.SetActive(true);
 
-            Player.GetComponent<Action_Player>().setPauseFlg(true);
+            LifeBar.GetComponent<Life>().pauseflg = true;
         }
         //GameObject.Find("Canvas_Action").GetComponent<Canvas>().enabled = false;
 

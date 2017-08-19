@@ -5,16 +5,48 @@ using UnityEngine;
 public class Life : MonoBehaviour {
 
     RectTransform rt;
+    bool gameover = false;
+
+    private GameObject Player;
+    public GameObject explosion;
+    private GameObject Canvas_GameOver;
+
+    public bool pauseflg { get; set; }
 
     void Start()
     {
+        pauseflg = false;
         rt = GetComponent<RectTransform>();
+        Player = GameObject.Find("Action_Player");
+        Canvas_GameOver = GameObject.Find("Canvas_GameOver");
+    }
+
+    private void Update()
+    {
+        if(rt.sizeDelta.x <= 0)
+        {
+            if(gameover == false)
+            {
+                Instantiate(explosion, transform.position + new Vector3(0f, 1.2f, 0f), transform.rotation);
+            }
+
+            gameOver();
+
+            if (gameover)
+            {
+                //Application.LoadLevel("Main");
+
+                Canvas_GameOver.GetComponent<Canvas>().enabled = true;
+            }
+        }
     }
 
     public void LifeDown(int ap)
     {
         //RectTransformのサイズを取得し、マイナスする
         rt.sizeDelta -= new Vector2(ap, 0);
+
+
     }
 
     public void LifeUp(int hp)
@@ -26,6 +58,12 @@ public class Life : MonoBehaviour {
         {
             rt.sizeDelta = new Vector2(160f, 15f);
         }
+    }
+
+    public void gameOver()
+    {
+        Destroy(Player);
+        gameover = true;
     }
 }
 

@@ -12,23 +12,25 @@ public class Enemy1 : MonoBehaviour {
    // public GameObject item;
 
     public GameObject Player;
+    private GameObject LifeBar;
 
     private Life lifeScript;
     //メインカメラのタグ名　constは定数(絶対に変わらない値)
     private const string MAIN_CAMERA_TAG_NAME = "MainCamera";
     //カメラに映っているかの判定
     private bool _isRendered = false;
-    private bool pauseflag = false;
+
+
 
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        lifeScript = GameObject.FindGameObjectWithTag("HP").GetComponent<Life>();
+        LifeBar = GameObject.FindGameObjectWithTag("HP");
     }
 
     void Update()
     {
-        if (_isRendered && !(Player.GetComponent<Action_Player>().getPauseFlg()))
+        if (_isRendered && !(LifeBar.GetComponent<Life>().pauseflg))
         {
             rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);
         }
@@ -74,7 +76,7 @@ public class Enemy1 : MonoBehaviour {
     {
         if (col.gameObject.tag == "ActionPlayer")
         {
-            lifeScript.LifeDown(attackPoint);
+            LifeBar.GetComponent<Life>().LifeDown(attackPoint);
             transform.position = new Vector3(transform.position.x+1,transform.position.y,transform.position.z);
         }
     }
