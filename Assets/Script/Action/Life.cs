@@ -9,6 +9,7 @@ public class Life : MonoBehaviour {
 
     private GameObject Player;
     public GameObject explosion;
+    public GameObject damage;
     private GameObject Canvas_GameOver;
 
     public bool pauseflg { get; set; }
@@ -27,7 +28,7 @@ public class Life : MonoBehaviour {
         {
             if(gameover == false)
             {
-                Instantiate(explosion, transform.position + new Vector3(0f, 1.2f, 0f), transform.rotation);
+                Instantiate(explosion, Player.transform.position + new Vector3(0f, 1.2f, 0f), Player.transform.rotation);
             }
 
             gameOver();
@@ -46,6 +47,7 @@ public class Life : MonoBehaviour {
         //RectTransformのサイズを取得し、マイナスする
         rt.sizeDelta -= new Vector2(ap, 0);
 
+        Instantiate(damage, Player.transform.position + new Vector3(0f, 1.2f, 0f), Player.transform.rotation);
 
     }
 
